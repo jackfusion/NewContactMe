@@ -6,21 +6,6 @@ import styles from '@/styles/Home.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  async function handleOnSubmit(e) {
-  e.preventDefault();
-
-  const formData = {};
-
-  Array.from(e.currentTarget.elements).forEach(field => {
-    if ( !field.name ) return;
-    formData[field.name] = field.value;
-  });
-
-  await fetch('/api/mail', {
-    method: 'POST',
-    body: JSON.stringify(formData)
-  });
-}
   return (
     <>
       <Head>
