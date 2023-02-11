@@ -8,8 +8,8 @@ export default function handler(req, res) {
   Name: ${body.name}rn
   Email: ${body.email}rn
   Message: ${body.message}`;
-  console.log('body', body);
+
   mail.setApiKey(process.env.SENDGRID_API_KEY);
   res.status(200).json({ status: 'OK' })
-  
+  console.log('body', body);
 }
