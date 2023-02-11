@@ -16,7 +16,7 @@ export default function handler(req, res) {
     from: 'kendewitt@yftg.ca',
     subject: 'New Message from contact Me form!',
     text: message,
-    html: message.replace(/\r\n/g, '<br>'),
+    html: message.replace(/rn/g, '<br>'),
   }).then(() => {
     res.status(200).json({ status: 'Ok' });
   });
