@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '@/styles/Home.module.css, @/styles/global.css'
-import {useState} from 'react'
+import { Inter } from '@next/font/google'
+import styles from '@/styles/Home.module.css'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  async function handleSubmit(e) {
+  async function handleOnSubmit(e) {
   e.preventDefault();
 
   const formData = {};
@@ -18,11 +20,6 @@ export default function Home() {
     method: 'POST',
     body: JSON.stringify(formData)
   });
-    
-    function reset(){
-        var element = document.getElementById(" contactMe ");
-      element.reset();
-      }
 }
   return (
     <>
@@ -34,7 +31,10 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.grid}>
-          <form method="post" onSubmit={handleSubmit} id="contactMe">
+          <style jsx>{`
+            
+          `}</style>
+          <form method="post" onSubmit={handleOnSubmit}>
             <p>
               <label htmlFor="name">Name</label>
               <input id="name" type="text" name="name" />
@@ -48,7 +48,7 @@ export default function Home() {
               <textarea id="message" name="message" />
             </p>
             <p>
-              <button onClick="reset()">Submit</button>
+              <button>Submit</button>
             </p>
           </form>
         </div>
