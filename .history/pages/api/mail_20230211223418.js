@@ -12,15 +12,16 @@ export default function handler(req, res) {
   mail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const data = {
+    
+  };
+
+  mail.send({
     to: 'kendewitt@yftg.ca',
     from: 'kendewitt@yftg.ca',
     subject: 'New Message from contact Me form!',
     text: message,
-    html: message.replace(/\r\n/g, '<br>'
-  };
-
-  mail.send(data)
-  .then(() => {
+    html: message.replace(/\r\n/g, '<br>'),
+  }).then(() => {
     res.status(200).json({ status: 'Ok' });
   });
 }

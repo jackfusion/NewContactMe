@@ -19,8 +19,9 @@ export default function handler(req, res) {
     html: message.replace(/\r\n/g, '<br>'
   };
 
-  mail.send(data)
-  .then(() => {
+  mail.send({
+    ),
+  }).then(() => {
     res.status(200).json({ status: 'Ok' });
   });
 }
